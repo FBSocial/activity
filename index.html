@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <script>
+    // 解决低版本浏览器不支持getAttributeNames函数 -- 这里主要是字节的 iconpark 用到了
+    // https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getAttributeNames
+    if (!Element.prototype.getAttributeNames) {
+      Element.prototype.getAttributeNames = function () {
+        const attributes = this.attributes;
+        const names = [];
+        for (let i = 0; i < attributes.length; i++) {
+          names.push(attributes[i].name);
+        }
+        return names;
+      };
+    }
+  </script>
+  <script
+    src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_35683_2.962dc0a090904273a2e2e8dd08d056c2.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
